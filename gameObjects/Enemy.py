@@ -1,4 +1,4 @@
-from Paddle import Paddle
+from gameObjects.Paddle import Paddle
 
 class Enemy(Paddle):
     OBJECT_NAME = 'enemy'
@@ -7,6 +7,9 @@ class Enemy(Paddle):
     
     def update(self, pygame):
         pass
-
+    
+    def render(self) -> None:
+        pass
+    
     def __str__(self):
         return 'This is {}. Position: x: {} y: {} speed {}'.format(self.OBJECT_NAME, self.x, self.y, self.speed)

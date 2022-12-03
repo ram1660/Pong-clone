@@ -1,15 +1,26 @@
-
-class Entity:
+from abc import ABC, abstractmethod
+import pygame
+class Entity(ABC):
     OBJECT_NAME = 'entity'
 
-    def __init__(self, x=0, y=0, width=0, height=0, direction=1, speed=1) -> None:
+    def __init__(self, surface: pygame.Surface, color: pygame.Color, x=0, y=0, width=0, height=0, direction=1, speed=1) -> None:
         self._x = x
         self._y = y
         self._width = width
         self._height = height
         self._direction = direction
         self._speed = speed
+        self._surface = surface
+        self._color = color
+
+    @abstractmethod
+    def update(self) -> None:
+        pass
+
     
+    def render(self) -> None:
+        pygame.draw.rect(self._surface, self._color, [self._x, self._y, self._width, self._height])
+
     def __repr__(self) -> str:
         return 'Entity(x={}, y={}, width={}, height={}, direction={}, speed={})'.format(self.__x, self._y, self._width, self._height, self._direction, self._speed)
     
