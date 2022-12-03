@@ -3,7 +3,7 @@ import pygame
 class Entity(ABC):
     OBJECT_NAME = 'entity'
 
-    def __init__(self, surface: pygame.Surface, color: pygame.Color, x=0, y=0, width=0, height=0, direction=1, speed=1) -> None:
+    def __init__(self, surface: pygame.Surface, color: tuple, x=0, y=0, width=0, height=0, direction=1, speed=1) -> None:
         self._x = x
         self._y = y
         self._width = width
