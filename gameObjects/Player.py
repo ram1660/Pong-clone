@@ -8,17 +8,16 @@ class Player(Paddle):
     Edit the constructor to customize the position.
     '''
     OBJECT_NAME = 'player'
-    def __init__(self, name, surface, color, x=0, y=0, width=0, height=0, direction=0, speed=20):
-        super(Player, self).__init__(surface, color, x, y, width, height, direction, speed)
+    def __init__(self, name: str, surface: pygame.Surface, color: tuple, x=0, y=0, direction=0, speed=20):
+        super(Player, self).__init__(surface, color, x, y, direction, speed)
         self.name = name
 
     def update(self) -> None:
-        events = pygame.event.get()
-        for event in events:
-            if event.type == pygame.KEYDOWN:
-                self.move_up()
-            elif event.type == pygame.KEYUP:
-                self.move_down()
+        pressed_keys = pygame.key.get_pressed()
+        if pressed_keys[pygame.K_UP] or pressed_keys[pygame.K_w]:
+            self.move_up()
+        elif pressed_keys[pygame.K_DOWN] or pressed_keys[pygame.K_s]:
+            self.move_down()
 
     def move_up(self) -> None:
         if self._surface.get_height() > self._y - self._speed > 0:
