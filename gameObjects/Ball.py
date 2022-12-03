@@ -4,10 +4,11 @@ import pygame
 class Ball(Entity):
     BALL_SIZE = 30
     def __init__(self, surface: pygame.Surface, color: tuple, x=0, y=0, direction=1, speed=1):
-        super().__init__(surface, color, x, y, self.BALL_SIZE, self.BALL_SIZE, direction, speed)
+        super().__init__(surface, color, x - self.BALL_SIZE // 2, y, self.BALL_SIZE, self.BALL_SIZE, direction, speed)
 
-    def update(self, pygame: pygame):
-        pygame.draw.rect()
+    def update(self):
+        pass
+
 
     def render(self) -> None:
         super().render()

@@ -9,7 +9,7 @@ class Player(Paddle):
     '''
     OBJECT_NAME = 'player'
     def __init__(self, name: str, surface: pygame.Surface, color: tuple, x=0, y=0, direction=0, speed=20):
-        super(Player, self).__init__(surface, color, x, y, direction, speed)
+        super(Player, self).__init__(surface, color,super(). PADDLE_WIDTH + x, y, direction, speed)
         self.name = name
 
     def update(self) -> None:
