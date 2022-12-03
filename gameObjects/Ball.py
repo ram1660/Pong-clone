@@ -2,8 +2,9 @@ from gameObjects.Entity import Entity
 import pygame
 
 class Ball(Entity):
-    def __init__(self, x=0, y=0, width=0, height=0, direction=1, speed=1):
-        super().__init__(x, y, width, height, direction, speed)
+    BALL_SIZE = 30
+    def __init__(self, surface: pygame.Surface, color: tuple, x=0, y=0, direction=1, speed=1):
+        super().__init__(surface, color, x, y, self.BALL_SIZE, self.BALL_SIZE, direction, speed)
 
     def update(self, pygame: pygame):
         pygame.draw.rect()
